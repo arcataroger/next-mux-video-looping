@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
-import MuxPlayer from "@mux/mux-player-react/lazy"
+import LazyMuxPlayer from "@mux/mux-player-react/lazy"
+import NotLazyMuxPlayer from "@mux/mux-player-react"
 
 export default function Home() {
     return (
@@ -8,11 +9,15 @@ export default function Home() {
                 <h1>Next 15</h1>
                 <h2>With the correct boolean type</h2>
                 <p>This will NOT loop:</p>
-                <MuxPlayer playbackId="LpkfsKWW7w02VfRMSlI5ekJlFskvF4Uyk" loop={true}/>
+                <LazyMuxPlayer playbackId="LpkfsKWW7w02VfRMSlI5ekJlFskvF4Uyk" loop={true}/>
 
                 <h2>With the incorrect string type</h2>
                 <p>This WILL loop</p>
-                <MuxPlayer playbackId="LpkfsKWW7w02VfRMSlI5ekJlFskvF4Uyk" loop={"true"}/>
+                <LazyMuxPlayer playbackId="LpkfsKWW7w02VfRMSlI5ekJlFskvF4Uyk" loop={"true"}/>
+
+                <h2>Not lazy player</h2>
+                <p>This WILL loop too</p>
+                <NotLazyMuxPlayer playbackId="LpkfsKWW7w02VfRMSlI5ekJlFskvF4Uyk" loop={true}/>
             </main>
         </div>
     );
